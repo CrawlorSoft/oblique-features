@@ -1,0 +1,9 @@
+[FeatureController|$log;$scope;ofService;|checkFeatureEnabled(string)]
+[ObliqueStaticFeatureService|$log;featureLibrary;|getFeatureEnabledState(string)]
+[ObliqueWebSocketFeatureService|$log;connection;|connect(serverAddr);disconnect();getFeatureEnabledState(string)]
+
+[<<Service>>]^-[<<ObliqueFeatureService>>]
+[<<Controller>>]^-.-[FeatureController]
+[FeatureController]uses -.->[<<ObliqueFeatureService>>]
+[<<ObliqueFeatureService>>]^-.-[ObliqueStaticFeatureService]
+[<<ObliqueFeatureService>>]^-.-[ObliqueWebSocketFeatureService]

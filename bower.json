@@ -1,0 +1,38 @@
+{
+  "name": "oblique-features",
+  "version": "1.0.0",
+  "homepage": "https://github.com/CrawlorSoft/oblique-features",
+  "description": "An AngularJS feature hiding implementation.",
+  "main": "./release/oblique-features.js",
+  "keywords": [
+    "angular",
+    "feature",
+    "hiding",
+    "feature",
+    "disabling"
+  ],
+  "authors": [
+    "Daniel Taylor (dan.taylor@crawlorsoft.com)"
+  ],
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "buildreports",
+    "config",
+    "documentation",
+    "src",
+    "tests",
+    "gulpfile.js",
+    "*.sublime-project"
+  ],
+  "dependencies": {
+    "angular": "~1.4.1",
+    "angular-mocks": "~1.4.0"
+  },
+  "resolutions": {
+    "angular": "1.4.0"
+  }
+}

@@ -1,0 +1,8 @@
+# Directories
+bower_components/
+node_modules/
+
+# Files
+*.*workspace
+*.*cache
+

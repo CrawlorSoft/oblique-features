@@ -1,0 +1,612 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <title>Code coverage report for src/services/oblique-features.service.js</title>
+    <meta charset="utf-8">
+    <link rel="stylesheet" href="../../prettify.css">
+    <link rel="stylesheet" href="../../base.css">
+    <style type='text/css'>
+        div.coverage-summary .sorter {
+            background-image: url(../../sort-arrow-sprite.png);
+        }
+    </style>
+</head>
+<body>
+<div class="header high">
+    <h1>Code coverage report for <span class="entity">src/services/oblique-features.service.js</span></h1>
+    <h2>
+        Statements: <span class="metric">100% <small>(47 / 47)</small></span> &nbsp;&nbsp;&nbsp;&nbsp;
+        Branches: <span class="metric">100% <small>(25 / 25)</small></span> &nbsp;&nbsp;&nbsp;&nbsp;
+        Functions: <span class="metric">100% <small>(11 / 11)</small></span> &nbsp;&nbsp;&nbsp;&nbsp;
+        Lines: <span class="metric">100% <small>(47 / 47)</small></span> &nbsp;&nbsp;&nbsp;&nbsp;
+        Ignored: <span class="metric"><span class="ignore-none">none</span></span> &nbsp;&nbsp;&nbsp;&nbsp;
+    </h2>
+    <div class="path"><a href="../../index.html">All files</a> &#187; <a href="index.html">src/services/</a> &#187; oblique-features.service.js</div>
+</div>
+<div class="body">
+<pre><table class="coverage">
+<tr><td class="line-count">1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25
+26
+27
+28
+29
+30
+31
+32
+33
+34
+35
+36
+37
+38
+39
+40
+41
+42
+43
+44
+45
+46
+47
+48
+49
+50
+51
+52
+53
+54
+55
+56
+57
+58
+59
+60
+61
+62
+63
+64
+65
+66
+67
+68
+69
+70
+71
+72
+73
+74
+75
+76
+77
+78
+79
+80
+81
+82
+83
+84
+85
+86
+87
+88
+89
+90
+91
+92
+93
+94
+95
+96
+97
+98
+99
+100
+101
+102
+103
+104
+105
+106
+107
+108
+109
+110
+111
+112
+113
+114
+115
+116
+117
+118
+119
+120
+121
+122
+123
+124
+125
+126
+127
+128
+129
+130
+131
+132
+133
+134
+135
+136
+137
+138
+139
+140
+141
+142
+143
+144
+145
+146
+147
+148
+149
+150
+151
+152
+153
+154
+155
+156
+157
+158
+159
+160
+161
+162
+163
+164
+165
+166
+167
+168
+169
+170
+171
+172
+173
+174
+175
+176
+177
+178
+179
+180
+181
+182
+183
+184
+185
+186
+187
+188
+189
+190</td><td class="line-coverage"><span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">30</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">30</span>
+<span class="cline-any cline-yes">47</span>
+<span class="cline-any cline-yes">47</span>
+<span class="cline-any cline-yes">6</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">41</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">30</span>
+<span class="cline-any cline-yes">6</span>
+<span class="cline-any cline-yes">2</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">6</span>
+<span class="cline-any cline-yes">2</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">4</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">30</span>
+<span class="cline-any cline-yes">24</span>
+<span class="cline-any cline-yes">10</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">24</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">30</span>
+<span class="cline-any cline-yes">5</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">30</span>
+<span class="cline-any cline-yes">5</span>
+<span class="cline-any cline-yes">5</span>
+<span class="cline-any cline-yes">5</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">5</span>
+<span class="cline-any cline-yes">4</span>
+<span class="cline-any cline-yes">4</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">30</span>
+<span class="cline-any cline-yes">9</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">8</span>
+<span class="cline-any cline-yes">8</span>
+<span class="cline-any cline-yes">8</span>
+<span class="cline-any cline-yes">7</span>
+<span class="cline-any cline-yes">7</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">8</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">30</span>
+<span class="cline-any cline-yes">5</span>
+<span class="cline-any cline-yes">5</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">30</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span></td><td class="text"><pre class="prettyprint lang-js">(function() {
+  'use strict';
+  /**
+   * @ngdoc service
+   * @name featuresService
+   * @description
+   * The featuresService is the main point of interaction between the `oblique-features` module and AngularJS
+   * code. This service proivdes the following interaction capabilities:
+   *
+   * 1. Checking feature enabled / disabled status; and
+   * 2. Toggling individual features; and
+   * 3. Setting data dictionaries of enabled / disabled features from:
+   *   1. Hard-coded JSON sources; or
+   *   2. Remote JSON sources a single time or on a repeating schedule.
+   *
+   * ## Checking Feature Status
+   *
+   * In order to determine if a feature should be enabled or disabled, the service provides the
+   * `checkFeatureEnabled(featureName)`.  This function will return true if the feature is either explicitly
+   * enabled or is omitted from the data set or false if the feature is explicitly disabled.
+   *
+   * ### Base Required For All Other Features?
+   *
+   * If desired, it is possible for the enabled / disabled status of individual features to be influenced by whether
+   * or not the base feature is enabled.  If, for example, a security flaw is found, it would be possible to disable
+   * every feature by simply setting `base` to be false, and calling
+   * `featuresService.setBaseRequiredForAllFeatures(true)`.
+   *
+   * At this point, if `base` ever becomes disabled, any element with an `of-feature` element will be disabled.
+   *
+   * ## Disabling Features
+   * For ease of use and mitigation of unintended consequences, all features are enabled by default.  In order
+   * to prevent a feature from being displayed, the feature must be disabled.  There are multiple ways of disabling
+   * features in `oblique-features`:
+   *
+   * 1. Toggling the individual feature; or
+   * 2. Setting a feature dictionary with the feature disabled; or
+   * 3. Setting a remote JSON file with the desired features disabled in it.
+   *
+   * ### Toggling Individual Features
+   * This is more useful for testing applications, to ensure that when a feature is disabled, all of the
+   * relevant items are hidden and that it does not have any adverse effect on the remainder of the web application.
+   *
+   * To toggle an individual feature, one could set up the AngularJS JavaScript as follows:
+    &lt;example&gt;
+    angular.module('some-module').controller('someController', ['featuresService', function(featuresService) {
+      this.toggleFeature = function(featureName) {
+        featuresService.toggleFeature(featureName);
+      }
+    }]);
+    &lt;/example&gt;
+   * And then have an HTML setup as follows:
+    ```html
+    &lt;div class="someFeatureDiv" of-feature feature="disableMe"&gt;
+      &lt;!-- Some content goes here --&gt;
+    &lt;/div&gt;
+    &lt;button ng-click="ctrl.toggleFeature('disableMe')"&gt;Disable Feature&lt;/button&gt;
+    ```
+   * ### Disabling Features Via Hard-Coded JSON Data
+   * This functionality is most useful if it is unlikely that deployed functionality will need to be adjusted on the
+   * fly.  In this method of feature disabling, the hard-coded JSON source is passed into the service and will
+   * over-write any other feature enabled / disabled status which had been previously set.  As an example:
+   *
+   &lt;example&gt;
+    angular.module('some-module').controller('someController', ['featuresService', function(featuresService) {
+      var jsonData = {
+        base: true,
+        signup: false,
+        accountDeletion: false,
+        dataViewing: true
+      };
+      featuresService.setHardCodedSource(jsonData);
+    }]);
+   &lt;/example&gt;
+   *
+   * In this example, signup and accountDeletion functionality would be disabled while all other functionality would
+   * be enabled.
+   *
+   * ### Disabling Features Via Remote JSON Data
+   * This functionality is most useful if there is a high probability that functionality will need to be enabled /
+   * disabled on the fly without a full re-deploy of the web application.  In this case, the functionality dictionary
+   * needs to be deployed to a known URI which can be passed in to the setRemoteSource method.
+   *
+   * With the remote source, it is also possible to set a timeout to retrieve the remote source again to facilitate
+   * hot-disabling of functionality within a certain timeframe.  Taking the JSON data from the above example, if it were
+   * to be placed at http://foofoo.net/features.json, could be retrieved every 5 minutes by doing the following:
+   *
+   &lt;example&gt;
+    angular.module('some-module').controller('someController', ['featuresService', function(featuresService) {
+      featuresService.setRemoteSource('http://foofoo.net/features.json', 5*60*1000);
+    }]);
+   &lt;/example&gt;
+   *
+   *
+   */
+  angular.module('oblique-features')
+  .factory('featuresService',
+    ['$log', '$http', '$interval', '$rootScope',
+    function($log, $http, $interval, $rootScope) {
+      var FeaturesService = {
+        remoteSource: null,
+        intervalId: null,
+        baseRequiredForAllFeatures: false,
+        featuresEnabledStatus: {
+          base: true
+        }
+      };
+      FeaturesService.checkFeatureEnabled = function(featureName) {
+        featureName = featureName ? featureName : 'base';
+        if (FeaturesService.baseRequiredForAllFeatures) {
+          return (FeaturesService.featuresEnabledStatus.base &amp;&amp;
+            (FeaturesService.featuresEnabledStatus[featureName] === true ||
+              FeaturesService.featuresEnabledStatus[featureName] === undefined));
+        } else {
+          return (FeaturesService.featuresEnabledStatus[featureName] ||
+            FeaturesService.featuresEnabledStatus[featureName] === undefined);
+        }
+      };
+&nbsp;
+      FeaturesService.toggleFeature = function(featureName) {
+        if (!featureName) {
+          featureName = 'base';
+        }
+        if (undefined === FeaturesService.featuresEnabledStatus[featureName]) {
+          FeaturesService.featuresEnabledStatus[featureName] = false;
+        } else {
+          FeaturesService.featuresEnabledStatus[featureName] = !FeaturesService.featuresEnabledStatus[featureName];
+        }
+      };
+&nbsp;
+      FeaturesService.setFeatureEnabledData = function(data) {
+        if (undefined === data.base) {
+          data.base = true;
+        }
+        FeaturesService.featuresEnabledStatus = data;
+      };
+&nbsp;
+      FeaturesService.setBaseRequiredForAllFeatures = function(reqdForAll) {
+        FeaturesService.baseRequiredForAllFeatures = reqdForAll;
+      };
+&nbsp;
+      FeaturesService.setRemoteSource = function(sourceURI, repeatIn, repeatCount) {
+        FeaturesService.remoteSource = sourceURI;
+        FeaturesService.checkRemoteSource();
+        if (FeaturesService.intervalId) {
+          $interval.cancel(FeaturesService.intervalId);
+        }
+        if (repeatIn) {
+          FeaturesService.intervalId = $interval(FeaturesService.checkRemoteSource, repeatIn, repeatCount);
+          if (repeatIn &lt; 60000) {
+            $log.warn('setRemoteSource: Checking source at extremely short intervals is not advised.');
+          }
+        }
+      };
+&nbsp;
+      FeaturesService.checkRemoteSource = function() {
+        if (!FeaturesService.remoteSource) {
+          $log.warn('checkRemoteSource: No remote source has been set, returning');
+          return;
+        }
+        var promise = $http.get(FeaturesService.remoteSource);
+        var self = FeaturesService;
+        promise.then(function(response) {
+          self.setFeatureEnabledData(response.data);
+          return response.data;
+        })
+        .catch(function(errorResponse) {
+          var errorData = {
+            status: errorResponse.status,
+            method: errorResponse.config.method,
+            url: errorResponse.config.url,
+            statusText: errorResponse.statusText,
+            data: errorResponse.data
+          };
+          $log.error('checkRemoteSource: Errors encountered retrieving feature status information: ', errorData);
+        });
+        return promise;
+      };
+&nbsp;
+      FeaturesService.setHardCodedSource = function(data) {
+        FeaturesService.setFeatureEnabledData(data);
+        if (FeaturesService.intervalId) {
+          $interval.cancel(FeaturesService.intervalId);
+          FeaturesService.intervalId = null;
+        }
+      };
+      return FeaturesService;
+    }]);
+})();
+&nbsp;</pre></td></tr>
+</table></pre>
+
+</div>
+<div class="footer">
+    <div class="meta">Generated by <a href="http://istanbul-js.org/" target="_blank">istanbul</a> at Sun Jul 05 2015 23:52:09 GMT-0400 (EDT)</div>
+</div>
+<script src="../../prettify.js"></script>
+<script>
+window.onload = function () {
+        if (typeof prettyPrint === 'function') {
+            prettyPrint();
+        }
+};
+</script>
+<script src="../../sorter.js"></script>
+</body>
+</html>

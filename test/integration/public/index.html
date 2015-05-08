@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <title>Oblique Features Test Page</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.1/angular.min.js"></script>
+    <script src="/oblique-features.min.js"></script>
+    <script>
+      (function() {
+        angular.module('ObliqueFeaturesTestApp', ['oblique-features'])
+        .controller('ObliqueFeaturesTestController', ['featuresService', '$scope', function(featuresService, $scope) {
+          $scope.featureBaseValue = featuresService.checkFeatureEnabled();
+          $scope.featureTitleValue = featuresService.checkFeatureEnabled('title');
+          $scope.featureOneValue = featuresService.checkFeatureEnabled('One');
+          $scope.featureTwoValue = featuresService.checkFeatureEnabled('Two');
+          $scope.featureBaseRequiredValue = featuresService.baseRequiredForAllFeatures;
+
+          $scope.$watch('featureBaseValue', function(newval, oldval) {
+            if (newval !== oldval) {
+              featuresService.toggleFeature('base');
+            }
+          });
+          $scope.$watch('featureTitleValue', function(newval, oldval) {
+            if (newval !== oldval) {
+              featuresService.toggleFeature('title');
+            }
+          });
+          $scope.$watch('featureOneValue', function(newval, oldval) {
+            if (newval !== oldval) {
+              featuresService.toggleFeature('featureOne');
+            }
+          });
+          $scope.$watch('featureTwoValue', function(newval, oldval) {
+            if (newval !== oldval) {
+              featuresService.toggleFeature('featureTwo');
+            }
+          });
+          $scope.$watch('featureBaseRequiredValue', function(newVal) {
+            featuresService.setBaseRequiredForAllFeatures(newVal);
+          });
+
+          $scope.setBaseDisabledRemote = function() {
+            featuresService.setRemoteSource('/oblique-features/onlyBaseDisabled.features.json');
+          };
+
+          $scope.setBaseEnabledRemote = function() {
+            featuresService.setRemoteSource('/oblique-features/allEnabled.features.json');
+          };
+          $scope.setTimedEnable = function() {
+            featuresService.setRemoteSource('/oblique-features/allEnabled.features.json', 1000);
+          };
+        }]);
+      })();
+    </script>
+  </head>
+  <body data-ng-app="ObliqueFeaturesTestApp" data-ng-controller="ObliqueFeaturesTestController">
+    <h1 id="pageTitle" feature="title" style="text-align: center">Oblique Features Test Application</h1>
+
+    <h3 id="introTitle" of-feature feature="title">Preamble</h3>
+    <p id="introParagraph" of-feature>
+    This page is to test the oblique-features directive and service.  This paragraph is part of the
+    <code>base</code> feature.  As such, if the <code>base</code> feature is disabled, this paragraph
+    will disappear.
+    </p>
+
+    <h3 id="noFeaturesTitle" of-feature feature="title">No Features</h3>
+    <p id="noFeatures">
+    This paragraph will never be removed as it has no of-feature tag.
+    </p>
+    <of-feature feature="featureOne">
+      <p id="featureOneParagraph1">
+        <u>
+          This feature paragraph is surrouned by a tag with <code>of-feature feature="featureOne"</code> element, rather than an of-feature attribute on the paragraph.
+        </u>
+      </p>
+      <p id="featureOneParagraph2">
+        <u>As is this paragraph</u>
+      </p>
+      <p id="featureTwoParagraph2" of-feature feature="featureTwo">
+        <b>
+          This featureTwo paragraph is embedded inside the of-feature feature="featureOne" setup.
+        </b>
+      </p>
+    </of-feature>
+
+    <p id="featurelessParagraph" feature="featureOne">
+      This paragraph features a span <span id="featureTwoSpanOne" of-feature feature="featureTwo" style="font-weight: bold">(this one right here)</span> which will be hidden or shown by de-selecting or re-selecting featureTwo.
+    </p>
+
+    <h3 id="tableTitle" of-feature feature="title">Features Table</h3>
+    <p id="featuresParagraph" of-feature>
+      The table below will not be affected by the selection / deselection of any features.  This paragraph is a base paragraph.
+    </p>
+
+    <h3 id="visualTitle" of-feature feature="title">Quick Visual Demo</h3>
+    <ol>
+      <li>No Feature Specified: <span id="spanBaseOne" of-feature>Enabled</span></li>
+      <li>Base: <span id="spanBaseTwo" of-feature feature="base">Enabled</span></li>
+      <li>Title: <span id="spanTitle" of-feature feature="title">Enabled</span></li>
+      <li>featureOne: <span id="spanFeatureOne" of-feature feature="featureOne">Enabled</span></li>
+      <li>featureTwo: <span id="spanFeatureTwo" of-feature feature="featureTwo">Enabled</span></li>
+    </ol>
+    <table border="2" cellpadding="5" width="100%">
+      <tr>
+        <th>Enabled <br />/ <br />Disabled?</th>
+        <th>Feature Name</th>
+        <th>Feature Description</th>
+      </tr>
+      <tr>
+        <td style="text-align: center"><input type="checkbox" data-ng-model="featureBaseValue"></td>
+        <td>Base</td>
+        <td>The base feature.  Any of-feature tag without a <i>feature</i> value or with the <i>feature</i>
+        value of <code>base</code> will be shown / hidden by this check box.</td>
+      </tr>
+      <tr>
+        <td style="text-align: center"><input type="checkbox" data-ng-model="featureTitleValue"></td>
+        <td>Title</td>
+        <td>The Title feature.  Any of-feature element with a <i>feature</i> value of <code>title</code> will be
+        shown / hidden by this check box. The only title this will not affect is the top level, centered title.</td>
+      </tr>
+      <tr>
+        <td style="text-align: center"><input type="checkbox" data-ng-model="featureOneValue"></td>
+        <td>FeatureOne</td>
+        <td>Any elements which are part of FeatureOne (underlined text) will be shown / hidden by this check box.</td>
+      </tr>
+      <tr>
+        <td style="text-align: center"><input type="checkbox" data-ng-model="featureTwoValue"></td>
+        <td>FeatureTwo</td>
+        <td>Any elements which are part of FeatureTwo (bold text outside of this table) will be shown / hidden by this check box.</td>
+      </tr>
+      <tr>
+        <td style="text-align: center"><input type="checkbox" data-ng-model="featureBaseRequiredValue"></td>
+        <td>Require Base For Feature</td>
+        <td>If this is checked, if base is unchecked, all other features will be treated as unchecked.</td>
+      </tr>
+    </table>
+    <p>The following buttons will either set base to be the only disabled feature or enable all features via a remote source.</p>
+    <button id="btnDisableBase" ng-click="setBaseDisabledRemote()">Disabled</button>
+    <button id="btnEnableBase" ng-click="setBaseEnabledRemote()">Enabled</button>
+    <button id="btnTimedEnable" ng-click="setTimedEnable()">Set Enabled With 1000ms Timeout</button>
+  </body>
+</html>
