@@ -1,6 +1,6 @@
 {
   "name": "oblique-features",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "homepage": "https://github.com/CrawlorSoft/oblique-features",
   "description": "An AngularJS feature hiding implementation.",
   "main": "./release/oblique-features.js",
